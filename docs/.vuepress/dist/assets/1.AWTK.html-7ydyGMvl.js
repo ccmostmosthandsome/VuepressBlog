@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as a,a as e,b as r}from"./app-Zmf-1eOa.js";const c={},l=e("h2",{id:"hello-world",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#hello-world","aria-hidden":"true"},"#"),r(" hello world")],-1),s=[l];function _(d,n){return t(),a("div",null,s)}const i=o(c,[["render",_],["__file","1.AWTK.html.vue"]]);export{i as default};

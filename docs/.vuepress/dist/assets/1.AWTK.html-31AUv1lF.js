@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-9b662ac6","path":"/KnowledgeBase/FAQ/1.AWTK.html","title":"","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"hello world","slug":"hello-world","link":"#hello-world","children":[]}],"git":{},"filePathRelative":"KnowledgeBase/FAQ/1.AWTK.md"}');export{e as data};
