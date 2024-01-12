@@ -1,5 +1,4 @@
 node_modules
 .temp
 .cache
-yarn.lock
-pnpm-lock.yaml
+
