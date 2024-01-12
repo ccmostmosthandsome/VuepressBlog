@@ -9,7 +9,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/images/favicon.ico' }], // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: '/web_accumulate/', // 这是部署到github相关的配置 下面会讲
+  base: '/', // 这是部署到github相关的配置 下面会讲
   markdown: {
     // lineNumbers: false, // 代码块显示行号,
     highligh: true, //是否启用高亮功能
