@@ -30,6 +30,7 @@ jobs:
     - run: pnpm run docs:build
     - run: echo $PATH
     - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
+    - run: echo ${{ secrets.CCTOKENS }}
 
     # 发布 Release
     - name: Create Release
