@@ -28,6 +28,7 @@ jobs:
 
     - run: pnpm install
     - run: pnpm run docs:build
+    - run: echo $PATH
     - run: sudo tar -zcvf release.tgz docs package.json pnpm-lock.json .gitignore .github
 
     # 发布 Release
