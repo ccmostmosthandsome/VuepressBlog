@@ -28,7 +28,7 @@ jobs:
 
     - run: pnpm install
     - run: pnpm run docs:build
-    - run: tar -zcvf release.tgz docs package.json pnpm-lock.json .gitignore .github
+    - run: sudo tar -zcvf release.tgz docs package.json pnpm-lock.json .gitignore .github
 
     # 发布 Release
     - name: Create Release
@@ -64,6 +64,6 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /home/vuepress
-          wget https://github.com/ccmostmosthandsome/VuepressBlog/releases/latest/download/release.tgz -O release.tgz
-          tar zxvf release.tgz
+          sudo wget https://github.com/ccmostmosthandsome/VuepressBlog/releases/latest/download/release.tgz -O release.tgz
+          sudo tar zxvf release.tgz
           pnpm install 
