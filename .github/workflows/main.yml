@@ -13,12 +13,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
+    
     # 打包构建
-    - name: docs
+    - name: Build
       uses: actions/setup-node@master
-    - run: npm install
-    - run: npm run docs:build
-    - run: tar -zcvf release.tgz .gitignore .github package.json pnpm-lock.yaml
+      with:
+        node-version: 21
+
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: true
+
+    - run: pnpm install
+    - run: pnpm run docs:build
+    - run: tar -zcvf release.tgz docs package.json pnpm-lock.json .gitignore .github
 
     # 发布 Release
     - name: Create Release
@@ -53,7 +63,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /home/realworld-nuxtjs
+          cd /home/vuepress
           wget https://github.com/ccmostmosthandsome/VuepressBlog/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
-          npm install
+          pnpm install 
