@@ -1,4 +1,4 @@
-name: Publish And Deploy Demo
+name: vuepress博客
 on:
   push:
     tags:
@@ -29,7 +29,7 @@ jobs:
     - run: pnpm install
     - run: pnpm run docs:build
     - run: echo $PATH
-    - run: sudo tar -zcvf release.tgz docs package.json pnpm-lock.json .gitignore .github
+    - run: sudo tar -zcvf release.tgz /docs /package.json /pnpm-lock.json
 
     # 发布 Release
     - name: Create Release
