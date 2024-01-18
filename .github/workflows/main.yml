@@ -35,6 +35,9 @@ jobs:
     - run: echo ${{ secrets.CCTOKENS }}
     - run: echo ${{ github.ref }}
     - run: echo ${{ github.ref }}
+      
+    - name: Set Step Debug
+      run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
 
     # 发布 Release
     - name: Create Release
@@ -48,6 +51,7 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
+      run: gh release create ${{ github.ref }} ./path/to/artifact/* -v
 
     # 上传构建结果到 Release
     - name: Upload Release Asset
