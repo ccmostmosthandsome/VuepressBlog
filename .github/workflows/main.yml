@@ -31,7 +31,7 @@ jobs:
     - run: pnpm install
     - run: pnpm run docs:build
     - run: echo $PATH
-    - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
+    # - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
     - run: echo ${{ secrets.CCTOKENS }}
     - run: echo ${{ github.ref }}
     - run: echo ${{ github.ref }}
@@ -42,7 +42,7 @@ jobs:
     # 发布 Release
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.CCTOKENS }}
         ACTIONS_STEP_DEBUG: true
