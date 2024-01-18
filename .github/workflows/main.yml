@@ -71,6 +71,8 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /home/vuepress
-          wget https://github.com/ccmostmosthandsome/VuepressBlog/releases/latest/download/release.tgz -O release.tgz
+          https://codeload.github.com/ccmostmosthandsome/VuepressBlog/tar.gz/refs/tags/v0.0.0.28
+          https://github.com/ccmostmosthandsome/VuepressBlog/releases/tag/v0.0.0.28
+          wget https://github.com/ccmostmosthandsome/VuepressBlog/tar.gz/${{ github.ref }} -O release.tgz
           tar zxvf release.tgz
-          pnpm install 
+          
