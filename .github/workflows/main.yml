@@ -26,11 +26,18 @@ jobs:
         version: 8
         run_install: true
 
+    - name: My Step
+      run: |
+        echo "Debug information..."
+        # Your other commands here
+
     - run: pnpm install
     - run: pnpm run docs:build
     - run: echo $PATH
     - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
     - run: echo ${{ secrets.CCTOKENS }}
+    - run: echo ${{ github.ref }}
+    - run: echo ${{ github.ref }}
 
     # 发布 Release
     - name: Create Release
@@ -43,6 +50,7 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
+      
 
     # 上传构建结果到 Release
     - name: Upload Release Asset
