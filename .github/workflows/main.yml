@@ -36,8 +36,12 @@ jobs:
     - run: echo ${{ github.ref }}
     - run: echo ${{ github.ref }}
       
-    - name: Set Step Debug
-      run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+    - name: Install GitHub CLI
+      run: |
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+        sudo apt-add-repository -y https://cli.github.com/packages
+        sudo apt update
+        sudo apt install gh
 
     # 发布 Release
     - name: Create Release
