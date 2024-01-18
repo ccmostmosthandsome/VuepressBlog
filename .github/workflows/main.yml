@@ -44,7 +44,7 @@ jobs:
       id: create_release
       uses: actions/create-release@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CCTOKENS }}
         ACTIONS_STEP_DEBUG: true
       with:
         # tag_name: ${{ github.ref }}
