@@ -31,7 +31,7 @@ jobs:
     - run: pnpm install
     - run: pnpm run docs:build
     - run: echo $PATH
-    # - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
+    - run: tar --ignore-failed-read -zcvf release.tgz docs package.json pnpm-lock.yaml
     - run: echo ${{ secrets.CCTOKENS }}
     - run: echo ${{ github.ref }}
     - run: echo ${{ github.ref }}
@@ -48,6 +48,9 @@ jobs:
         name: Demo ${{ github.ref_name }}
         draft: false
         prerelease: false
+        files: |
+          release.tgz
+
 
     # 上传构建结果到 Release
     # - name: Upload Release Asset
@@ -73,4 +76,3 @@ jobs:
           cd /home/vuepress
           wget https://codeload.github.com/ccmostmosthandsome/VuepressBlog/tar.gz/${{ github.ref_name }} -O release.tgz
           tar zxvf release.tgz
-          pnpm install 
