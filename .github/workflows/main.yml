@@ -60,7 +60,9 @@ jobs:
     #     GITHUB_TOKEN: ${{ secrets.CCTOKENS }}
     #   with:
     #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    
+    #     asset_path: ./release.tgz
+    #     asset_name: release.tgz
+    #     asset_content_type: application/x-tgz
 
     # 部署到服务器
     - name: Deploy
@@ -72,5 +74,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /home/vuepress
-          wget https://github.com/ccmostmosthandsome/VuepressBlog/tar.gz/${{ github.ref_name }} -O release.tgz
+          wget https://codeload.github.com/ccmostmosthandsome/VuepressBlog/tar.gz/${{ github.ref_name }} -O release.tgz
           tar zxvf release.tgz
